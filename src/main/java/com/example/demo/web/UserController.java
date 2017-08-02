@@ -14,6 +14,12 @@ import com.example.demo.web.domain.User;
 public class UserController {
 	ArrayList<User> users = new ArrayList<>();
 	
+	@GetMapping("")
+	public ModelAndView home() {
+		ModelAndView mav = new ModelAndView("user/index");
+		return mav;
+	}
+	
 	@GetMapping("/users/{index}")
 	public ModelAndView show(@PathVariable int index) {
 		User user = users.get(index);
