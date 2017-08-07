@@ -20,6 +20,16 @@ public class UserController {
 		return mav;
 	}
 	
+	@GetMapping("/user/login")
+	public String login() {
+		return "user/login";
+	}
+	
+	@GetMapping("/user/login_failed")
+	public String loginFailed() {
+		return "user/login_failed";
+	}
+	
 	@GetMapping("/users/{index}")
 	public ModelAndView show(@PathVariable int index) {
 		User user = users.get(index);
@@ -41,6 +51,12 @@ public class UserController {
 	public ModelAndView list() {
 		ModelAndView mav = new ModelAndView("user/list");
 		mav.addObject("user", users);
+		return mav;
+	}
+	
+	@GetMapping("/user/form")
+	public ModelAndView from() {
+		ModelAndView mav = new ModelAndView("user/form");
 		return mav;
 	}
 }
